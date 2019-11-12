@@ -1,40 +1,99 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Probabilistic Record Linkage of Hospital Patients - Chris Oakman - Clojure/conj 2019</title>
+	<title>Probabilistic Record Linkage of Hospital Patients - Chris Oakman - Clojure/conj 2019</title>
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
 
-		<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+
+<section>
+	<h1>Reveal.js</h1>
+	<h2>Foobar</h2>
+	<h3>The HTML Presentation Framework</h3>
+	<!-- <p>
+		<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
+	</p> -->
+</section>
+
+
+<section>
+	<h2>Intro</h2>
+	<p>
+		reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
+	</p>
+</section>
+
+
+
+<section>
+	<h2>The Problem</h2>
+	<p>Identify the same patient from multiple data sources.</p>
+	<!-- <p>Given a large list of medical data, extract a unique list of patients.</p> -->
+	<!-- <p>Multiple sources of truth for "which patients are in the hospital right now"</p> -->
+</section>
+
+
+
+
+<section>
+	<h2>Marvelous List</h2>
+	<ul>
+		<li>No order here</li>
+		<li>Or here</li>
+		<li>Or here</li>
+		<li>Or here</li>
+	</ul>
+</section>
+
+
+
+<section>Slide 1</section>
+
+
+
+
+
+
+
+
+<section>
+	<h1>Thank you!</h1>
+	<p>Presentation code is available at <a href="https://github.com/oakmac/record-linking-talk">github.com/oakmac/record-linking-talk</a>
+  <p>chrisoakman.com // @oakmac1</p>
+</section>
+
+
+
+</div><!-- end .slides -->
+</div><!-- end .reveal -->
+
+<script src="js/reveal.js"></script>
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		dependencies: [
+			{ src: 'plugin/markdown/marked.js' },
+			{ src: 'plugin/markdown/markdown.js' },
+			{ src: 'plugin/notes/notes.js', async: true },
+			{ src: 'plugin/highlight/highlight.js', async: true }
+		]
+	});
+</script>
+
+</body>
 </html>
