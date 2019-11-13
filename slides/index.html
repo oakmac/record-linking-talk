@@ -12,6 +12,11 @@
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
+	<style type="text/css">
+	p.lesson-learned {
+		margin-bottom: 0;
+	}
+	</style>
 </head>
 <body>
 <div class="reveal">
@@ -20,12 +25,8 @@
 
 
 <section>
-	<h1>Reveal.js</h1>
-	<h2>Foobar</h2>
-	<h3>The HTML Presentation Framework</h3>
-	<!-- <p>
-		<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
-	</p> -->
+	<h2>Probabilistic Record Linkage of Hospital Patients</h2>
+	<p><small>by Chris Oakman</small></p>
 </section>
 
 
@@ -46,33 +47,105 @@
 </section>
 
 
-
-
-<section>
-	<h2>Marvelous List</h2>
+<section data-background="#4d7e65">
+	<p class="lesson-learned">Lesson Learned:</p>
+	<h2>What is Record Linking?</h2>
 	<ul>
-		<li>No order here</li>
-		<li>Or here</li>
-		<li>Or here</li>
-		<li>Or here</li>
-	</ul>
+		<li>Same "real world" data from difference sources
+	  <li>Joining the data together
+  </ul>
 </section>
 
 
 
-<section>Slide 1</section>
+<section data-background="#4d7e65">
+	<p class="lesson-learned">Lesson Learned:</p>
+	<h2>Data Cleaning is Vital</h2>
+	<ul>
+		<li>Without consistent data, nothing else will work correctly
+	  <li>Tends to be time-consuming and tedious
+	  <li>Do not skimp here
+  </ul>
+</section>
 
 
 
+<section data-background="#4d7e65">
+	<p class="lesson-learned">Lesson Learned:</p>
+	<h2>Deterministic Algorithm</h2>
+	<ul>
+		<li>Good first attempt
+	  <li>Keep it simple
+	  <li>Think: "secret foreign key"
+	  <li>Test the result
+  </ul>
+</section>
 
 
+
+<section>
+	<h2>Fellegi-Sunter Method</h2>
+	<ul>
+		<li>Match Weight (m)
+	  <li>Unmatch weight (u)
+  </ul>
+</section>
+
+
+
+<section data-background="#4d7e65">
+	<p class="lesson-learned">Lesson Learned:</p>
+	<h2>Probabilistic Algorithm</h2>
+	<ul>
+		<li>Another name: "fuzzy matching"
+		<li>Works surprisingly well
+	  <li>Don't overthink the weights - just try something
+	  <li>Test the result
+  </ul>
+</section>
+
+
+
+<section data-background="#4d7e65">
+	<p class="lesson-learned">Lesson Learned:</p>
+	<h2>Do Approximate String Matching</h2>
+	<ul>
+		<li>Improves FS results
+	  <li>Especially useful for names
+  </ul>
+</section>
+
+
+
+<section data-background="#4d7e65">
+	<p class="lesson-learned">Lesson Learned:</p>
+	<h2>Be Creative About Dimensions</h2>
+	<ul>
+		<li>Can a person have multiple IDs?
+	  <li>Is time a useful dimension for matching?
+	  <li>What else is unique about your data to help identify?
+  </ul>
+</section>
+
+
+
+<section data-background="#4d7e65">
+	<p class="lesson-learned">Lesson Learned:</p>
+	<h2>Build Tools to Visualize</h2>
+	<ul>
+		<li>Gives you confidence in the outcome
+	  <li>Makes edge cases less scary
+	  <li>Tools are fun!
+  </ul>
+</section>
 
 
 
 <section>
 	<h1>Thank you!</h1>
 	<p>Presentation code is available at <a href="https://github.com/oakmac/record-linking-talk">github.com/oakmac/record-linking-talk</a>
-  <p>chrisoakman.com // @oakmac1</p>
+  <p><a href="https://chrisoakman.com">chrisoakman.com</a><p>
+	<p><a href="https://twitter.com/oakmac1">@oakmac1</a></p>
 </section>
 
 
@@ -86,6 +159,7 @@
 	// - https://github.com/hakimel/reveal.js#configuration
 	// - https://github.com/hakimel/reveal.js#dependencies
 	Reveal.initialize({
+		hash: true,
 		dependencies: [
 			{ src: 'plugin/markdown/marked.js' },
 			{ src: 'plugin/markdown/markdown.js' },
