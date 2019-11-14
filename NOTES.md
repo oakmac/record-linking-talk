@@ -34,7 +34,7 @@
 -
 - Step #1: normalize the data
   - "data cleaning"
-  - this is literally the most important step
+  - this is the most important step
   - it takes the most time
   - Clojure + spec would make a great combination
   - test, test, test

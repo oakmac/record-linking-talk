@@ -31,29 +31,79 @@
 
 
 <section>
-	<h2>Intro</h2>
-	<p>
-		reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-	</p>
+	<h2>Chris Oakman</h2>
+	<ul>
+    <li>list of projects?
+	  <li>professional background?
+	</ul>
 </section>
 
 
 
 <section>
-	<h2>The Problem</h2>
-	<p>Identify the same patient from multiple data sources.</p>
-	<!-- <p>Given a large list of medical data, extract a unique list of patients.</p> -->
-	<!-- <p>Multiple sources of truth for "which patients are in the hospital right now"</p> -->
+	<h2>The Nurses are unhappy</h2>
+	<p>"The census is wrong."</p>
 </section>
+
+
+
+<section>
+	<h2>Understanding The Problem</h2>
+	<ul>
+		<li>List of messages from HL7 stream
+		<li>Data comes from multiple sources
+		<li>Identify all of the unique patients
+	  <li>Match to "our" list of patients
+  </ul>
+</section>
+
 
 
 <section data-background="#4d7e65">
 	<p class="lesson-learned">Lesson Learned:</p>
 	<h2>What is Record Linking?</h2>
-	<ul>
-		<li>Same "real world" data from difference sources
-	  <li>Joining the data together
-  </ul>
+	<p>Joining the same "real world" data together from different sources.</p>
+	<aside class="notes">
+		<ul>
+			<li>data linkage
+			<li>object identity resolution
+	</aside>
+</section>
+
+
+
+<section>
+	<p>Some mesages are very detailed:</p>
+	<pre><code data-trim>
+{:firstName "BABY GIRL"
+ :lastName "fever"
+ :ssn "000-00-0000"}
+ :visitNumber "888921"
+	</code></pre>
+</section>
+
+
+
+<section>
+	<p>Some messages are sparse:</p>
+	<pre><code data-trim>
+{:firstName "BABY GIRL"
+ :lastName "fever"
+ :ssn "000-00-0000"}
+ :visitNumber "888921"
+	</code></pre>
+</section>
+
+
+
+<section>
+	<p>Not all in the same format:</p>
+	<pre><code data-trim>
+{:firstName "BABY GIRL"
+ :lastName "fever"
+ :ssn "000-00-0000"}
+ :visitNumber "888921"
+	</code></pre>
 </section>
 
 
@@ -66,6 +116,22 @@
 	  <li>Tends to be time-consuming and tedious
 	  <li>Do not skimp here
   </ul>
+	<aside class="notes">
+		Expect this to be the longest part of your project
+	</aside>
+</section>
+
+
+<!-- Let's try to match some IDs together! -->
+
+
+<section>
+	<p>IDs are all over the place:</p>
+	<pre><code data-trim>
+{:firstName "BABY GIRL"
+ :lastName "fever"
+ :ssn "000-00-0000"}
+	</code></pre>
 </section>
 
 
