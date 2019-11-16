@@ -16,6 +16,11 @@
 	p.lesson-learned {
 		margin-bottom: 0;
 	}
+	img.nurse-emoji {
+		border: 0 !important;
+		box-shadow: none !important;
+		width: 35%;
+	}
 	</style>
 </head>
 <body>
@@ -41,8 +46,21 @@
 
 
 <section>
-	<h2>The Nurses are unhappy</h2>
-	<p>"The census is wrong."</p>
+	<h2>Problem Context</h2>
+	<ul>
+		<li>We provide a Sepsis screening tool
+	  <li>We screen every patient, every shift
+		<li>Nurses aim for 100% compliance
+		<li>Census = list of patients in the hospital
+	</ul>
+</section>
+
+
+
+<section>
+	<img class="nurse-emoji" src="img/unhappy-nurse1.png" alt="Unhappy Nurse" />
+	<h2>"The census is wrong."</h2>
+	<!-- <h2>The Nurses are unhappy</h2> -->
 </section>
 
 
@@ -117,17 +135,40 @@
 	  <li>Do not skimp here
   </ul>
 	<aside class="notes">
-		Expect this to be the longest part of your project
+		<ul>
+		  <li>Expect this to be the longest part of your project
+			<li>clojure.spec is useful here
+		</ul>
 	</aside>
 </section>
 
 
-<!-- Let's try to match some IDs together! -->
+
+<section>
+	<h2>Data Cleaning Edge Cases</h2>
+	<pre><code data-trim>
+;; TODO: what else to show here?
+["000000000"
+ "555555555"
+ "000000001"
+ "999999999"]
+	</code></pre>
+</section>
+
 
 
 <section>
-	<p>IDs are all over the place:</p>
+	<h2>Let's try to match some of these patients!</h2>
+</section>
+
+
+
+<section>
+	<p>Lots of ID options:</p>
 	<pre><code data-trim>
+;; medical record number
+;; SSN
+;; Visit Number
 {:firstName "BABY GIRL"
  :lastName "fever"
  :ssn "000-00-0000"}
