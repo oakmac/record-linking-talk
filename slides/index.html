@@ -53,6 +53,9 @@
 		<li>Nurses aim for 100% compliance
 		<li>Census = list of patients in the hospital
 	</ul>
+	<aside class="notes">
+		<p>"I would like to start by providing some context around the problem..."</p>
+	</aside>
 </section>
 
 
@@ -60,7 +63,13 @@
 <section>
 	<img class="nurse-emoji" src="img/unhappy-nurse1.png" alt="Unhappy Nurse" />
 	<h2>"The census is wrong."</h2>
-	<!-- <h2>The Nurses are unhappy</h2> -->
+	<aside class="notes">
+		<ul>
+			<li>"The nurses are unhappy."
+			<li>Head nurse phone call
+		  <li>Manually created patient
+    </ul>
+	</aside>
 </section>
 
 
@@ -73,6 +82,12 @@
 		<li>Identify all of the unique patients
 	  <li>Match to "our" list of patients
   </ul>
+	<aside class="notes">
+		<ul>
+			<li>Lots of data in a hospital from lots of sources
+			<li>Varying levels of quality / accuracy
+    </ul>
+	</aside>
 </section>
 
 
@@ -82,9 +97,12 @@
 	<h2>What is Record Linking?</h2>
 	<p>Joining the same "real world" data together from different sources.</p>
 	<aside class="notes">
+		<p>Other names:</p>
 		<ul>
 			<li>data linkage
 			<li>object identity resolution
+		  <li>merge processing / list washing
+		</ul>
 	</aside>
 </section>
 
@@ -136,8 +154,10 @@
   </ul>
 	<aside class="notes">
 		<ul>
+			<li>Other names: data cleaning, data preprocessing
 		  <li>Expect this to be the longest part of your project
-			<li>clojure.spec is useful here
+			<li>Quality of data will determine linking outcome success
+			<li>clojure.spec is useful for this
 		</ul>
 	</aside>
 </section>
@@ -166,12 +186,10 @@
 <section>
 	<p>Lots of ID options:</p>
 	<pre><code data-trim>
-;; medical record number
-;; SSN
-;; Visit Number
-{:firstName "BABY GIRL"
- :lastName "fever"
- :ssn "000-00-0000"}
+;; Which ID to use?
+;; - medical record number
+;; - SSN
+;; - Visit Number
 	</code></pre>
 </section>
 
@@ -181,7 +199,7 @@
 	<p class="lesson-learned">Lesson Learned:</p>
 	<h2>Deterministic Algorithm</h2>
 	<ul>
-		<li>Good first attempt
+		<li>Good first approach
 	  <li>Keep it simple
 	  <li>Think: "secret foreign key"
 	  <li>Test the result
@@ -250,7 +268,7 @@
 
 <section>
 	<h1>Thank you!</h1>
-	<p>Presentation code is available at <a href="https://github.com/oakmac/record-linking-talk">github.com/oakmac/record-linking-talk</a>
+	<p><a href="https://github.com/oakmac/record-linking-talk">github.com/oakmac/record-linking-talk</a>
   <p><a href="https://chrisoakman.com">chrisoakman.com</a><p>
 	<p><a href="https://twitter.com/oakmac1">@oakmac1</a></p>
 </section>

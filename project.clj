@@ -9,15 +9,7 @@
             :distribution :repo}
 
   :dependencies [[org.clojure/clojure "1.10.0"]
-                 [org.postgresql/postgresql "42.1.4"]
-                 [com.fzakaria/slf4j-timbre "0.3.14"]
                  [com.taoensso/timbre "4.10.0"]
-                 [migratus "1.2.7"]]
-
-  :plugins [[migratus-lein "0.7.2"]]
-
-  ;; NOTE: please create a profiles.clj file based on example.profiles.clj file
-  ;;       in order to fill in database information
-  :migratus {}
+                 [clj-fuzzy "0.4.1"]]
 
   :repl-options {:init-ns com.oakmac.conj2019.record-linking-talk.core})

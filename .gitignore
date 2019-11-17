@@ -2,4 +2,6 @@
 .nrepl-port
 target/
 
+node_modules/
+
 *.diff
