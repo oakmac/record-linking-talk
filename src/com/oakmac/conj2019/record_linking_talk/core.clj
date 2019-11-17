@@ -1,7 +1,11 @@
 (ns com.oakmac.conj2019.record-linking-talk.core
   (:require
     [clj-fuzzy.phonetics :refer [double-metaphone]]
-    [clojure.string :as str]))
+    [clojure.string :as str]
+    [com.oakmac.conj2019.record-linking-talk.validation :refer [valid-ssn?]]))
+
+;; -----------------------------------------------------------------------------
+;; Some Fake Patient Data
 
 (def clarice1
   {:address {:street nil
@@ -27,6 +31,36 @@
   {:dob "1970-10-04"
    :fname "Katie"
    :lname "Framing"})
+
+;; -----------------------------------------------------------------------------
+;; Deterministic Approach
+
+(defn patients-match?
+  "Compare two patients to see if they share an ID"
+  [patient-a patient-b]
+  (let [ssn-a (:ssn patient-a)
+        ssn-b (:ssn patient-b)
+        vn-a (:visitNumber patient-a)
+        vn-b (:visitNumber patient-b)
+        mrn-a (:medicalRecordNumber patient-a)
+        mrn-b (:medicalRecordNumber patient-b)])
+  (cond
+    ;; Both patients have a matching SSN
+    (and (valid-ssn? ssn-a) (valid-ssn? ssn-b)
+         (= ssn-a ssn-b))
+    true
+
+    ;; Both patients have a matching Visit Number
+    (and (valid-visit-number? vn-a) (valid-visit-number? vn-b)
+         (= vn-a vn-b))
+    true
+
+    ;; Both patients have a matching Medical Record Number
+    (and (valid-mrn? mrn-a) (valid-mrn? mrn-b)
+         (= mrn-a mrn-b))
+    true
+
+    :else false))
 
 ;; -----------------------------------------------------------------------------
 ;; Probabilistic Approach

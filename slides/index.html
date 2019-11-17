@@ -35,6 +35,7 @@
 </section>
 
 
+
 <section>
 	<h2>Chris Oakman</h2>
 	<ul>
@@ -77,9 +78,10 @@
 <section>
 	<h2>Understanding The Problem</h2>
 	<ul>
-		<li>List of messages from HL7 stream
-		<li>Data comes from multiple sources
-		<li>Identify all of the unique patients
+		<li>Hospital data comes from HL7 stream
+		<li>Data originates from multiple sources
+		<li>Different schemas, varying levels of quality
+		<li>Identify all of the same patients
 	  <li>Match to "our" list of patients
   </ul>
 	<aside class="notes">
@@ -97,12 +99,18 @@
 	<h2>What is Record Linking?</h2>
 	<p>Joining the same "real world" data together from different sources.</p>
 	<aside class="notes">
-		<p>Other names:</p>
+		<p>Many other names:</p>
 		<ul>
 			<li>data linkage
-			<li>object identity resolution
+			<li>object identity resolution / entity resolution
 		  <li>merge processing / list washing
 		</ul>
+		<p>Other application domains:</p>
+		<ul>
+			<li>Historical research / combining old census
+			<li>Business intelligence / identifying customers
+		</ul>
+		<p>Let's look at some messages...</p>
 	</aside>
 </section>
 
@@ -110,35 +118,63 @@
 
 <section>
 	<p>Some mesages are very detailed:</p>
-	<pre><code data-trim>
-{:firstName "BABY GIRL"
- :lastName "fever"
- :ssn "000-00-0000"}
- :visitNumber "888921"
+	<pre><code class="clojure" data-trim>
+{:address {:street "9993 Lola Freeway"
+           :zip "73924"}
+ :dob "1970-10-04"
+ :firstName "Katy"
+ :lastName "Framingham"
+ :medicalRecordNumber "78831"
+ :ssn "710359155"
+ :visitNumber "442878"
+ ;; also ~300 additional fields:
+ ;; - emergency contacts
+ ;; - insurance information
+ ;; - patient history
+ ;; - and many more
+ })
 	</code></pre>
+	<aside class="notes">
+		<p>At this point in the talk...</p>
+		<ul>
+			<li>All of the data is fake
+			<li>You are not part of a massive HIPAA violation
+	  </ul>
+	</aside>
 </section>
 
 
 
 <section>
-	<p>Some messages are sparse:</p>
-	<pre><code data-trim>
-{:firstName "BABY GIRL"
- :lastName "fever"
- :ssn "000-00-0000"}
- :visitNumber "888921"
+	<p>Other messages are sparse:</p>
+	<pre><code class="clojure" data-trim>
+{:F_NAME "BABY GIRL "
+ :L_NAME "HIGH FEVER"
+ :SSN 999999999
+ :VN 888921}
 	</code></pre>
+	<aside class="notes">
+		<p>This message probably attached to a blood pressure machine
+		  in the waiting / admissions room</p>
+	</aside>
 </section>
 
 
 
 <section>
-	<p>Not all in the same format:</p>
-	<pre><code data-trim>
-{:firstName "BABY GIRL"
- :lastName "fever"
- :ssn "000-00-0000"}
- :visitNumber "888921"
+	<p>Format / Schema differences:</p>
+	<pre><code class="clojure" data-trim>
+{:firstName "Katy"
+ :first_name "Katy"
+ :F_NAME "KATY      "
+
+ :socialSecurityNumber "710-35-9155"
+ :SSN 710359155
+
+ ;; visitNumber --> VN
+ ;; medicalRecordNumber --> MR,
+ ;; different codes for floor, unit, room, etc
+}
 	</code></pre>
 </section>
 
@@ -151,6 +187,7 @@
 		<li>Without consistent data, nothing else will work correctly
 	  <li>Tends to be time-consuming and tedious
 	  <li>Do not skimp here
+	  <li>clojure.spec is your friend :)
   </ul>
 	<aside class="notes">
 		<ul>
@@ -166,7 +203,8 @@
 
 <section>
 	<h2>Data Cleaning Edge Cases</h2>
-	<pre><code data-trim>
+	<pre><code class="clojure" data-trim>
+;; beware IDs intended to sneak past client-side validation
 ;; TODO: what else to show here?
 ["000000000"
  "555555555"
@@ -185,7 +223,7 @@
 
 <section>
 	<p>Lots of ID options:</p>
-	<pre><code data-trim>
+	<pre><code class="clojure" data-trim>
 ;; Which ID to use?
 ;; - medical record number
 ;; - SSN
