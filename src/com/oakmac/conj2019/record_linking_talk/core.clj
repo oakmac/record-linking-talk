@@ -18,13 +18,10 @@
    :visitNumber "442878"})
 
 (def katy2
-  {:address nil
-   :dob "1970-10-04"
+  {:dob "1970-10-04"
    :fname "Katie"
    :lname "Framing"
-   :medicalRecordNumber nil
-   :ssn nil
-   :visitNumber nil})
+   :heartRate "116 bpm"})
 
 ;; ~~~~~~~~~~~~
 
@@ -53,9 +50,9 @@
 (def ethan
   {:address {:street "4729 Esteban Hills"
              :zip "59030"}
-   :dob "1965-02-06"
+   :dob "1958-02-06"
    :fname "Ethan"
-   :lname "Kessler"
+   :lname "Johnson"
    :medicalRecordNumber "34785"
    :ssn "335345129"
    :visitNumber "761325"})
@@ -63,9 +60,9 @@
 (def lukas1
   {:address {:street "1066 Kling Skyway"
              :zip "82403"}
-   :dob "1992-09-25"
+   :dob "1998-09-25"
    :fname "Lukas"
-   :lname "Fisher"
+   :lname "Johnson"
    :medicalRecordNumber "34788"
    :ssn "335345129"
    :visitNumber "761329"})
@@ -73,9 +70,9 @@
 (def lukas2
   {:address {:street "1066 Kling Skyway"
              :zip "82403"}
-   :dob "1992-09-25"
+   :dob "1998-09-25"
    :fname "Lukas"
-   :lname "Fisher"
+   :lname "Johnson"
    :medicalRecordNumber "34788"
    :ssn "283737684"
    :visitNumber "761329"})
