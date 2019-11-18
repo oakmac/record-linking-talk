@@ -1,7 +1,5 @@
 const faker = require('faker')
-const numPatients = 10
-const numDuplicateMin = 1
-const numDuplicateMax = 15
+const numPatients = 100
 
 function randomPatient () {
   return {
@@ -26,10 +24,6 @@ function getRandomInt (min, max) {
 
 let patients = []
 for (let i = 0; i < numPatients; i++) {
-  // const newPatient = randomPatient()
-  // for (let j = numDuplicateMin; j < numDuplicateMax; j++) {
-  //
-  // }
   patients.push(randomPatient())
 }
 

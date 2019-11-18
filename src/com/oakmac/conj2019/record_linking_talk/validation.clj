@@ -24,7 +24,7 @@
 (assert (all-the-same-chars? "111"))
 (assert (all-the-same-chars? "aaaaaaaaaa"))
 (assert (not (all-the-same-chars? "a1")))
-(assert (not (all-the-same-chars? "ZZZZZZZZZZZZZZZZZZZZZZz")))
+(assert (not (all-the-same-chars? "ZZZZZZZZZZZZz")))
 
 (defn- all-zeroes?
   "Is s all zero characters?"
@@ -44,7 +44,7 @@
       (= "00" (subs ssn 3 5))
       (= "0000" (subs ssn 5 9))))
 
-(def invalid-ssns
+(def ^:private invalid-ssns
   #{"078051120"   ;; Woolworth's Wallet Fiasco
     "219099999"}) ;; Social Security Administration Advertisement
 
