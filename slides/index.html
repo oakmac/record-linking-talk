@@ -13,6 +13,11 @@
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
 	<style type="text/css">
+	#projectsList img {
+		border: 0 !important;
+		box-shadow: none !important;
+		width: 35%;
+	}
 	p.lesson-learned {
 		margin-bottom: 0;
 	}
@@ -37,11 +42,30 @@
 
 
 <section>
+	<h2>Overview</h2>
+	<ul>
+    <li>Quick Introduction
+    <li>Problem Explanation + Definition
+    <li>Deterministic Approach
+    <li>Probabilistic Approach
+    <li>Lunchtime!
+	</ul>
+</section>
+
+
+
+<section>
 	<h2>Chris Oakman</h2>
 	<ul>
-    <li>list of projects?
-	  <li>professional background?
+    <li>Houston, TX
+	  <li>Developer, Designer, Educator
+		<li>With <strong>Luminare</strong> in Texas Medical Center (TMCx)
+		<li>Some Clojure projects:</li>
 	</ul>
+	<div id="projectsList">
+		<img src="img/cljs-white.png" alt="CLJS Logo" />
+		<img src="img/cljs-cheatsheet.png" alt="CLJS Cheatsheet Preview" />
+	</div>
 </section>
 
 
@@ -225,18 +249,6 @@
 
 
 
-<section>
-	<p>Lots of ID options:</p>
-	<pre><code class="clojure" data-trim>
-;; Which ID to use?
-;; - medical record number
-;; - SSN
-;; - Visit Number
-	</code></pre>
-</section>
-
-
-
 <section data-background="#4d7e65">
 	<p class="lesson-learned">Lesson Learned:</p>
 	<h2>Deterministic Algorithm</h2>
@@ -251,14 +263,25 @@
 
 
 <section>
+	<h2>Can we do better?</h2>
+	<ul>
+		<li>What other information can we use?
+		<li>How can we avoid false positives?
+</section>
+
+
+
+<section>
 	<h2>Fellegi-Sunter Method</h2>
 	<ul>
 		<li>Assign probability weights to each field
 			<ul>
-		    <li>Match weight (<em>m</em>)
-	      <li>Non-match weight (<em>u</em>)
+		    <li>Match weight (<em>m</em>)</li>
+	      <li>Non-match weight (<em>u</em>)</li>
 			</ul>
-		<li>Every field adds or substracts from overall match score
+		</li>
+		<li>Every field adds or substracts from overall match score</li>
+		<li>FIXME: put formula on this slide
   </ul>
 	<aside class="notes">
 		<ul>
@@ -277,9 +300,8 @@
 	<p class="lesson-learned">Lesson Learned:</p>
 	<h2>Probabilistic Algorithm</h2>
 	<ul>
-		<li>Another name: "fuzzy matching"
 		<li>Works surprisingly well
-	  <li>Don't overthink the weights - just try something
+	  <li>Don't overthink the weights: just try something
 	  <li>Test the result
   </ul>
 </section>
@@ -292,6 +314,7 @@
 	<ul>
 		<li>Improves FS results
 	  <li>Especially useful for names
+		<li>Caution with Levenshtein distance
   </ul>
 </section>
 
@@ -299,7 +322,7 @@
 
 <section data-background="#4d7e65">
 	<p class="lesson-learned">Lesson Learned:</p>
-	<h2>Be Creative About Dimensions</h2>
+	<h2>Understand Your Data</h2>
 	<ul>
 		<li>Can a person have multiple IDs?
 	  <li>Is time a useful dimension for matching?
@@ -316,6 +339,7 @@
 		<li>Gives you confidence in the outcome
 	  <li>Makes edge cases less scary
 	  <li>Tools are fun!
+		<li>FIXME: need a visual here
   </ul>
 </section>
 
@@ -323,11 +347,12 @@
 
 <section>
 	<img class="nurse-emoji" src="img/happy-nurse1.png" alt="Happy Nurse" />
-	<h2>TODO: what to put here? "Mortality is down."</h2>
+	<h2>"We love this tool!"</h2>
 	<aside class="notes">
 		<ul>
 			<li>"The nurses are happy."
-			<li>Mortality decline
+			<li>Confidence in the tool, confidence in the outcome
+			<li>Gov reported mortality decline
     </ul>
 	</aside>
 </section>
@@ -336,9 +361,9 @@
 
 <section>
 	<h1>Thank you!</h1>
-	<p><a href="https://github.com/oakmac/record-linking-talk">github.com/oakmac/record-linking-talk</a>
-  <p><a href="https://chrisoakman.com">chrisoakman.com</a><p>
-	<p><a href="https://twitter.com/oakmac1">@oakmac1</a></p>
+	<p style="text-align: left">- <a href="https://github.com/oakmac/record-linking-talk">github.com/oakmac/record-linking-talk</a> <small style="vertical-align: middle">(open source)</small></p>
+	<p style="text-align: left">- <a href="https://chrisoakman.com">chrisoakman.com</a>
+	<p style="text-align: left">- <a href="https://twitter.com/oakmac1">@oakmac1</a>
 </section>
 
 
