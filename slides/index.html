@@ -249,9 +249,22 @@
 <section>
 	<h2>Fellegi-Sunter Method</h2>
 	<ul>
-		<li>Match Weight (m)
-	  <li>Unmatch weight (u)
+		<li>Assign probability weights to each field
+			<ul>
+		    <li>Match weight (<em>m</em>)
+	      <li>Non-match weight (<em>u</em>)
+			</ul>
+		<li>Every field adds or substracts from overall match score
   </ul>
+	<aside class="notes">
+		<ul>
+			<li>match and unmatch value for each field
+			<li>m: probability that this field is a match if the two records refer to the same person
+		  <li>u: probability that the field is a match by chance
+			<li>You can calculate these weights based on analysis of the data
+			<li>Or take a guess at some reasonable values and see how it turns out
+		</ul>
+	</aside>
 </section>
 
 

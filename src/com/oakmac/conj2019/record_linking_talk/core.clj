@@ -2,22 +2,12 @@
   (:require
     [clj-fuzzy.phonetics :refer [double-metaphone]]
     [clojure.string :as str]
-    [com.oakmac.conj2019.record-linking-talk.validation :refer [valid-ssn?]]))
+    [com.oakmac.conj2019.record-linking-talk.validation :refer [looks-like-a-valid-id? valid-ssn?]]))
 
 ;; -----------------------------------------------------------------------------
 ;; Some Fake Patient Data
 
-(def clarice1
-  {:address {:street nil
-             :zip nil}
-   :dob ""
-   :fname "Clarice"
-   :lname "Lang"
-   :medicalRecordNumber nil
-   :ssn "000000000"
-   :visitNumber nil})
-
-(def katie1
+(def katy1
   {:address {:street "9993 Lola Freeway"
              :zip "73924"}
    :dob "1970-10-04"
@@ -27,40 +17,100 @@
    :ssn "710359155"
    :visitNumber "442878"})
 
-(def katie2
-  {:dob "1970-10-04"
+(def katy2
+  {:address nil
+   :dob "1970-10-04"
    :fname "Katie"
-   :lname "Framing"})
+   :lname "Framing"
+   :medicalRecordNumber nil
+   :ssn nil
+   :visitNumber nil})
+
+;; ~~~~~~~~~~~~
+
+(def brian
+  {:address {:street "4761 Tad Glens"
+             :zip "49867"}
+   :dob "2017-11-24"
+   :fname "Brian"
+   :lname "Lang"
+   :medicalRecordNumber "78831"
+   :ssn "467813477"
+   :visitNumber "825889"})
+
+(def julian
+  {:address {:street "4761 Tad Glens"
+             :zip "49867"}
+   :dob "2017-11-24"
+   :fname "Julian"
+   :lname "Lang"
+   :medicalRecordNumber "78832"
+   :ssn "681812714"
+   :visitNumber nil})
+
+;; ~~~~~~~~~~~~
+
+(def ethan
+  {:address {:street "4729 Esteban Hills"
+             :zip "59030"}
+   :dob "1965-02-06"
+   :fname "Ethan"
+   :lname "Kessler"
+   :medicalRecordNumber "34785"
+   :ssn "335345129"
+   :visitNumber "761325"})
+
+(def lukas1
+  {:address {:street "1066 Kling Skyway"
+             :zip "82403"}
+   :dob "1992-09-25"
+   :fname "Lukas"
+   :lname "Fisher"
+   :medicalRecordNumber "34788"
+   :ssn "335345129"
+   :visitNumber "761329"})
+
+(def lukas2
+  {:address {:street "1066 Kling Skyway"
+             :zip "82403"}
+   :dob "1992-09-25"
+   :fname "Lukas"
+   :lname "Fisher"
+   :medicalRecordNumber "34788"
+   :ssn "283737684"
+   :visitNumber "761329"})
 
 ;; -----------------------------------------------------------------------------
 ;; Deterministic Approach
 
-(defn patients-match?
-  "Compare two patients to see if they share an ID"
+(defn patient-ids-match?
+  "Compares IDs to see if two patients are the same person."
   [patient-a patient-b]
   (let [ssn-a (:ssn patient-a)
         ssn-b (:ssn patient-b)
         vn-a (:visitNumber patient-a)
         vn-b (:visitNumber patient-b)
         mrn-a (:medicalRecordNumber patient-a)
-        mrn-b (:medicalRecordNumber patient-b)])
-  (cond
-    ;; Both patients have a matching SSN
-    (and (valid-ssn? ssn-a) (valid-ssn? ssn-b)
-         (= ssn-a ssn-b))
-    true
+        mrn-b (:medicalRecordNumber patient-b)]
+    (cond
+      ;; Both patients have a matching SSN
+      (and (valid-ssn? ssn-a) (valid-ssn? ssn-b)
+           (= ssn-a ssn-b))
+      true
 
-    ;; Both patients have a matching Visit Number
-    (and (valid-visit-number? vn-a) (valid-visit-number? vn-b)
-         (= vn-a vn-b))
-    true
+      ;; Both patients have a matching Visit Number
+      (and (looks-like-a-valid-id? vn-a) (looks-like-a-valid-id? vn-b)
+           (= vn-a vn-b))
+      true
 
-    ;; Both patients have a matching Medical Record Number
-    (and (valid-mrn? mrn-a) (valid-mrn? mrn-b)
-         (= mrn-a mrn-b))
-    true
+      ;; Both patients have a matching Medical Record Number
+      (and (looks-like-a-valid-id? mrn-a) (looks-like-a-valid-id? mrn-b)
+           (= mrn-a mrn-b))
+      true
 
-    :else false))
+      :else false)))
+
+
 
 ;; -----------------------------------------------------------------------------
 ;; Probabilistic Approach
@@ -86,14 +136,14 @@
         (= a2 b2))))
 
 (def identifier-fields
-  "List of patient identifier fields that we want to compare patients with."
+  "Patient identifier fields that we want to use when comparing patients using
+   the Fellegi-Sunter method."
   [{:key :address
     :match-prob 0.90
     :unmatch-prob 0.10}
    {:key :dob
     :match-prob 0.95
-    ;; NOTE: we could be more precise here by calculating patient age
-    ;; not super important though
+    ;; NOTE: this is much higher than the real odds of a random dob match
     :unmatch-prob 0.01}
    {:key :fname
     :match-fn names-match?
@@ -124,7 +174,6 @@
         (if (or (nil? fieldA-value) (nil? fieldB-value))
           weight
           ;; else calculate weight score using the Fellegi-Sunter method
-          ;; http://www.bristol.ac.uk/media-library/sites/cmm/migrated/documents/problinkage.pdf
           (let [match-fn2 (if (fn? match-fn) match-fn default-match-fn)
                 is-a-match? (match-fn2 fieldA-value fieldB-value)]
             (if is-a-match?

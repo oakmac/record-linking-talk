@@ -26,6 +26,17 @@
 (assert (not (all-the-same-chars? "a1")))
 (assert (not (all-the-same-chars? "ZZZZZZZZZZZZZZZZZZZZZZz")))
 
+(defn- all-zeroes?
+  "Is s all zero characters?"
+  [s]
+  (every? #(= \0 %) s))
+
+(assert (all-zeroes? "0"))
+(assert (all-zeroes? "00000000000"))
+(assert (not (all-zeroes? "123")))
+(assert (not (all-zeroes? "xyz")))
+(assert (not (all-zeroes? "0000000g00000")))
+
 (defn- ssn-has-zero-groups?
   "Does this SSN have all zeroes in a single group?"
   [ssn]
@@ -53,3 +64,13 @@
 (assert (not (valid-ssn? "444990000")))
 (assert (not (valid-ssn? "078051120")))
 (assert (not (valid-ssn? "555555555")))
+
+(defn looks-like-a-valid-id? [id]
+  (and (string? id)
+       (all-digits? id)
+       (> (count id) 4)
+       (not (all-zeroes? id))))
+
+(assert (looks-like-a-valid-id? "825889"))
+(assert (not (looks-like-a-valid-id? "1")))
+(assert (not (looks-like-a-valid-id? "000000000")))
