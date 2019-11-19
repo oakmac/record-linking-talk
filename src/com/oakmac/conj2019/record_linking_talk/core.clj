@@ -12,9 +12,9 @@
 ;; Some Fake Patient Data
 
 (def katy1
-  {:address {:street "9993 Lola Freeway"
+  {:address {:street "9993 Lola St"
              :zip "73924"}
-   :dob "1970-10-04"
+   :dob "1980-10-04"
    :fname "Katy"
    :lname "Framingham"
    :medicalRecordNumber "78831"
@@ -22,7 +22,7 @@
    :visitNumber "442878"})
 
 (def katy2
-  {:dob "1970-10-04"
+  {:dob "1980-10-04"
    :fname "Katie"
    :lname "Framing"
    :heartRate "116 bpm"})
@@ -30,7 +30,7 @@
 ;; ~~~~~~~~~~~~
 
 (def brian
-  {:address {:street "4761 Tad Glens"
+  {:address {:street "4761 Blossom Glens"
              :zip "49867"}
    :dob "2017-11-24"
    :fname "Brian"
@@ -40,7 +40,7 @@
    :visitNumber "825889"})
 
 (def julian
-  {:address {:street "4761 Tad Glens"
+  {:address {:street "4761 Blossom Glens"
              :zip "49867"}
    :dob "2017-11-24"
    :fname "Julian"
@@ -51,18 +51,18 @@
 
 ;; ~~~~~~~~~~~~
 
-(def ethan
+(def jerry
   {:address {:street "4729 Esteban Hills"
              :zip "59030"}
    :dob "1958-02-06"
-   :fname "Ethan"
+   :fname "Jerry"
    :lname "Johnson"
    :medicalRecordNumber "34785"
    :ssn "335345129"
    :visitNumber "761325"})
 
 (def lukas1
-  {:address {:street "1066 Kling Skyway"
+  {:address {:street "1066 Maple Rd"
              :zip "82403"}
    :dob "1998-09-25"
    :fname "Lukas"
@@ -72,7 +72,7 @@
    :visitNumber "761329"})
 
 (def lukas2
-  {:address {:street "1066 Kling Skyway"
+  {:address {:street "1066 Maple Rd"
              :zip "82403"}
    :dob "1998-09-25"
    :fname "Lukas"
