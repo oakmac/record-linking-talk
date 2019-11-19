@@ -100,9 +100,10 @@
 <section>
 	<h2>Problem Context</h2>
 	<ul>
+		<li>Sepsis is a big problem in hospitals
 		<li>Luminare provides a Sepsis screening tool
 	  <li>We screen every patient, every shift
-		<li>Nurses aim for 100% compliance
+		<li>Nurses aim for 100% screening compliance
 		<li>Census = list of patients in the hospital
 	</ul>
 	<aside class="notes">
@@ -180,7 +181,7 @@
  :dob "1980-10-04"
  :firstName "Katy"
  :lastName "Framingham"
- :medicalRecordNumber "78831"
+ :medicalRecordNumber "55427"
  :ssn "710359155"
  :visitNumber "442878"
  ;; also ~300 additional fields:
@@ -206,7 +207,7 @@
 	<pre><code class="clojure" data-trim>
 {:F_NAME "BABY GIRL "
  :L_NAME "HIGH FEVER"
- :SSN 999999999
+ :SSN 555555555
  :VN 888921}
 	</code></pre>
 	<aside class="notes">
@@ -225,6 +226,7 @@
  :F_NAME "KATY      "
 
  :socialSecurityNumber "710-35-9155"
+ :ssn "710359155"
  :SSN 710359155
 
  ;; visitNumber --> VN
@@ -258,20 +260,6 @@
 
 
 <section>
-	<h2>Data Cleaning Edge Cases</h2>
-	<pre><code class="clojure" data-trim>
-;; beware IDs intended to sneak past client-side validation
-;; TODO: what else to show here?
-["000000000"
- "555555555"
- "000000001"
- "999999999"]
-	</code></pre>
-</section>
-
-
-
-<section>
 	<h2>Let's try to match some of these patients!</h2>
 </section>
 
@@ -293,8 +281,9 @@
 <section>
 	<h2>Can we do better?</h2>
 	<ul>
-		<li>What other information can we use?
-		<li>How can we avoid false positives?
+		<li>How can we avoid false positives?</li>
+		<li>What other information can we use?</li>
+	</ul>
 </section>
 
 
@@ -371,7 +360,7 @@
 
 <section data-background="#4d7e65">
 	<p class="lesson-learned">Lesson Learned:</p>
-	<h2>Build Tools to Visualize</h2>
+	<h2>Visualize Your Results</h2>
 	<ul>
 		<li>Gives you confidence in the outcome
 	  <li>Makes edge cases less scary
