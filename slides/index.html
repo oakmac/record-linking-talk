@@ -18,13 +18,40 @@
 		box-shadow: none !important;
 		width: 35%;
 	}
+
 	p.lesson-learned {
 		margin-bottom: 0;
 	}
+
 	img.nurse-emoji {
 		border: 0 !important;
 		box-shadow: none !important;
 		width: 35%;
+	}
+
+	em.math-symbol {
+		font-family: serif !important;
+		font-style: italic !important;
+	}
+
+	#matchFormulas {
+		display: flex;
+	}
+
+	#matchFormulas label {
+		display: block;
+		font-size: 80%;
+		margin-bottom: 0;
+	}
+
+	#matchFormulas img {
+    margin-top: 5px;
+    width: 75%;
+	}
+
+	#matchFormulas .left,
+	#matchFormulas .right {
+		flex: 1;
 	}
 	</style>
 </head>
@@ -42,10 +69,10 @@
 
 
 <section>
-	<h2>Overview</h2>
+	<h2>Talk Overview</h2>
 	<ul>
     <li>Quick Introduction
-    <li>Problem Explanation + Definition
+    <li>Problem Explanation + Definitions
     <li>Deterministic Approach
     <li>Probabilistic Approach
     <li>Lunchtime!
@@ -73,7 +100,7 @@
 <section>
 	<h2>Problem Context</h2>
 	<ul>
-		<li>We provide a Sepsis screening tool
+		<li>Luminare provides a Sepsis screening tool
 	  <li>We screen every patient, every shift
 		<li>Nurses aim for 100% compliance
 		<li>Census = list of patients in the hospital
@@ -92,7 +119,8 @@
 		<ul>
 			<li>"The nurses are unhappy."
 			<li>Head nurse phone call
-		  <li>Manually created patient
+		  <li>Manually created patients
+			<li>EMR system was delayed
     </ul>
 	</aside>
 </section>
@@ -276,13 +304,22 @@
 	<ul>
 		<li>Assign probability weights to each field
 			<ul>
-		    <li>Match weight (<em>m</em>)</li>
-	      <li>Non-match weight (<em>u</em>)</li>
+		    <li>Match weight (<em class="math-symbol">m</em>)</li>
+	      <li>Non-match weight (<em class="math-symbol">u</em>)</li>
 			</ul>
 		</li>
-		<li>Every field adds or substracts from overall match score</li>
-		<li>FIXME: put formula on this slide
+		<li>Every field adds or substracts from overall match score:</li>
   </ul>
+	<div id="matchFormulas">
+		<div class="left">
+			<label>Match:</label>
+			<img src="img/fs-match-formula.png" alt="Match Formula log(m/u)" />
+		</div>
+		<div class="right">
+			<label>Non-match:</label>
+			<img src="img/fs-unmatch-formula.png" alt="Un-match Formula log(1-m / 1-u)" />
+	  </div>
+	</div>
 	<aside class="notes">
 		<ul>
 			<li>match and unmatch value for each field
@@ -314,7 +351,7 @@
 	<ul>
 		<li>Improves FS results
 	  <li>Especially useful for names
-		<li>Caution with Levenshtein distance
+		<li>Caution with Levenshtein distance for IDs
   </ul>
 </section>
 
@@ -350,7 +387,7 @@
 	<h2>"We love this tool!"</h2>
 	<aside class="notes">
 		<ul>
-			<li>"The nurses are happy."
+			<li>"The nurses are happy again."
 			<li>Confidence in the tool, confidence in the outcome
 			<li>Gov reported mortality decline
     </ul>
@@ -361,9 +398,10 @@
 
 <section>
 	<h1>Thank you!</h1>
-	<p style="text-align: left">- <a href="https://github.com/oakmac/record-linking-talk">github.com/oakmac/record-linking-talk</a> <small style="vertical-align: middle">(open source)</small></p>
-	<p style="text-align: left">- <a href="https://chrisoakman.com">chrisoakman.com</a>
-	<p style="text-align: left">- <a href="https://twitter.com/oakmac1">@oakmac1</a>
+	<p style="text-align: left; margin-left: 2em;">- <a href="https://github.com/oakmac/record-linking-talk">github.com/oakmac/record-linking-talk</a></p>
+	<p style="text-align: left; margin-left: 3em; margin-top: -25px;"><span style="font-size: 75%;">Code is open source: ISC license</span></p>
+	<p style="text-align: left; margin-left: 2em;">- <a href="https://chrisoakman.com">chrisoakman.com</a>
+	<p style="text-align: left; margin-left: 2em;">- <a href="https://twitter.com/oakmac1">@oakmac1</a>
 </section>
 
 

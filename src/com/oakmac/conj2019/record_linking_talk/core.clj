@@ -1,4 +1,8 @@
 (ns com.oakmac.conj2019.record-linking-talk.core
+  "This code is meant to accompany the talk: Probabilistic Record Linkage of Hospital Patients
+   given by Chris Oakman at Clojure/conj 2019"
+  {:author "Chris Oakman <chris@oakmac.com>"
+   :license "ISC"}
   (:require
     [clj-fuzzy.phonetics :refer [double-metaphone]]
     [clojure.string :as str]

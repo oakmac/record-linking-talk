@@ -21,17 +21,24 @@ Felligi-Sunter method to create a probabilistic algorithm to match records.
 
 ## Speaker Bio
 
-Chris Oakman is a software developer, designer, and educator from Houston, TX.
+[Chris Oakman] is a software developer, designer, and educator from Houston, TX.
 
-He works at Luminare - a medical startup based out of the Texas Medical Center -
-and teaches software development at DigitalCrafts - a coding bootcamp school.
+He works at [Luminare] - a medical startup based out of the Texas Medical Center -
+and teaches software development at [DigitalCrafts] - a coding bootcamp school.
 
 He is the author of several open source projects, including the cljs.info
 cheatsheet, the CLJS logo, and several Parinfer ports and editor plugins.
 
+[Chris Oakman]:https://chrisoakman.com/
+[Luminare]:https://luminaremed.com/
+[DigitalCrafts]:https://www.digitalcrafts.com
 
 ## References
 
 - [Record Linking on Wikipedia](https://en.wikipedia.org/wiki/Record_linkage)
 - [Video overview of the problem space and includes a walkthough of using the Felligi-Sunter method](https://www.youtube.com/watch?v=5AlCf1w0T4w)
 - [Slide deck demonstrating the Felligi-Sunter method](http://www.bristol.ac.uk/media-library/sites/cmm/migrated/documents/problinkage.pdf)
+
+## License
+
+[ISC License](LICENSE.md)
