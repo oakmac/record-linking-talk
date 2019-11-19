@@ -13,10 +13,24 @@
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
 	<style type="text/css">
+	#projectsList {
+		display: flex;
+	}
+
+	#projectsList > div {
+		flex: 1;
+	}
+
 	#projectsList img {
 		border: 0 !important;
 		box-shadow: none !important;
-		width: 35%;
+	}
+
+	#projectsList ul {
+    font-size: 50%;
+    list-style-type: none;
+    margin-left: -10px;
+    margin-top: -15px;
 	}
 
 	p.lesson-learned {
@@ -90,8 +104,24 @@
 		<li>Some Clojure projects:</li>
 	</ul>
 	<div id="projectsList">
-		<img src="img/cljs-white.png" alt="CLJS Logo" />
-		<img src="img/cljs-cheatsheet.png" alt="CLJS Cheatsheet Preview" />
+		<div>
+		  <img style="width: 90%;" src="img/cljs-white.png" alt="CLJS Logo" />
+	  </div>
+		<div>
+			<img style="width: 90%;" src="img/cljs-cheatsheet.png" alt="CLJS Cheatsheet Preview" />
+		</div>
+		<div>
+			<img style="width: 75%;" src="img/parinfer.png" alt="Parinfer" />
+			<ul class="parinfer-projects">
+		    <li>- atom-parinfer</li>
+		    <li>- vscode-parinfer</li>
+		    <li>- sublime-text-parinfer</li>
+		    <li>- parinfer.py</li>
+		    <li>- parinfer-jvm (for Cursive)</li>
+		    <li>- parinfer-viml</li>
+		    <li>- parinfer-elisp</li>
+			</ul>
+		</div>
 	</div>
 </section>
 
@@ -357,7 +387,7 @@
 </section>
 
 
-
+<!--
 <section data-background="#4d7e65">
 	<p class="lesson-learned">Lesson Learned:</p>
 	<h2>Visualize Your Results</h2>
@@ -368,7 +398,7 @@
 		<li>FIXME: need a visual here
   </ul>
 </section>
-
+ -->
 
 
 <section>
