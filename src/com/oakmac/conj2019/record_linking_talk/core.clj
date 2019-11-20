@@ -127,7 +127,7 @@
     (= a b)))
 
 (defn- names-match?
-  "Do name-a or name-b share any matching phoenitic values via double-metaphone?"
+  "Do name-a or name-b share any matching phonetic values via double-metaphone?"
   [name-a name-b]
   (let [[a1 a2] (double-metaphone name-a)
         [b1 b2] (double-metaphone name-b)]
