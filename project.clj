@@ -1,6 +1,7 @@
 (defproject record-linking-talk "1.0.0"
 
-  :description "This is code for the talk 'Probabilistic Record Linkage of Hospital Patients' by Chris Oakman at Clojure/conj 2019"
+  :description "This code accompanies the talk 'Probabilistic Record Linkage of
+                Hospital Patients' by Chris Oakman at Clojure/conj 2019"
   :url "https://github.com/oakmac/record-linking-talk"
   :author "Chris Oakman <chris@oakmac.com>"
 
@@ -12,4 +13,5 @@
                  [com.taoensso/timbre "4.10.0"]
                  [clj-fuzzy "0.4.1"]]
 
-  :repl-options {:init-ns com.oakmac.conj2019.record-linking-talk.core})
+  :repl-options {:init-ns com.oakmac.conj2019.record-linking-talk.core
+                 :prompt (fn [_ns] "\n>> ")})
