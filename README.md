@@ -1,6 +1,8 @@
 # Probabilistic Record Linkage of Hospital Patients
 
-Slides and code for talk on [Record Linking] given at [Clojure/conj 2019].
+Slides and code for my talk on [Record Linking] given at [Clojure/conj 2019].
+
+You can watch the talk recording here: https://www.youtube.com/watch?v=rGKEOMUtJfE
 
 [Record Linking]:https://en.wikipedia.org/wiki/Record_linkage
 [Clojure/conj 2019]:http://2019.clojure-conj.org/speaker-chris-oakman/
